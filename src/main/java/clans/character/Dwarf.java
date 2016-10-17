@@ -10,4 +10,8 @@ public class Dwarf {
 	public Dwarf() {
 		nature = new Nature();
 	}
+
+	public void thinkMoreLike(final Nature otherNature) {
+		nature.moveThinkingTo(otherNature);
+	}
 }
