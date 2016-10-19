@@ -13,11 +13,11 @@ import static org.junit.Assert.assertTrue;
  */
 public class NatureTest {
 
-    public static final double ALMOST_ZERO = 0.001;
-    public static final int MIN_REQUIRED_STEPS_COUNT = 1000;
-    public static final int MAX_REQUIRED_STEPS_COUNT = 2000;
-    public static final double MIN_NATUR_MULTIPLIERT = 0.2;
-    public static final double MAX_NATUR_MULTIPLIERT = 1.0;
+    private static final double ALMOST_ZERO = 0.001;
+    private static final int MIN_REQUIRED_STEPS_COUNT = 1000;
+    private static final int MAX_REQUIRED_STEPS_COUNT = 2000;
+    private static final double MIN_NATUR_MULTIPLIERT = 0.2;
+    private static final double MAX_NATUR_MULTIPLIERT = 1.0;
     private static final double DELTA = 1e-15;
 
     @Before
@@ -31,7 +31,7 @@ public class NatureTest {
     }
 
     @Test
-    public void moveThinkingTo() throws Exception {
+    public void whenMoveThinkingTo_thenDoMoreThan1000Steps() throws Exception {
         Nature startNature = new Nature(Nature.PHLEGMATIC);
         Nature endNature = Nature.SPITFIRE;
         int step = 0;
@@ -46,7 +46,7 @@ public class NatureTest {
     }
 
     @Test
-    public void getRandomNature() throws Exception {
+    public void whenGetRandomNature_thenReturnValueFromMinusOneToOne() throws Exception {
         for (int i = 0; i < 100; i++) {
             double value = Nature.getRandomNature(-1.0, 1.0);
             assertTrue(value >= -1.0);
