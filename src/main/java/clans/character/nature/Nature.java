@@ -85,4 +85,14 @@ public class Nature {
         double sumNature = basicNature.y + workedNature.y;
         return Math.abs((sumNature + beginDirection) / 2 * 0.8 + 0.2 * beginDirection);
     }
+
+    private double round(double value) {
+        return Math.round(value * 100.0) / 100.0;
+    }
+
+    @Override
+    public String toString() {
+        String nature = "Nature(" + round(basicNature.x + workedNature.x) + ", " + round(basicNature.y + workedNature.y) + ")";
+        return nature;
+    }
 }
