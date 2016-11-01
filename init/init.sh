@@ -6,8 +6,10 @@ echo $PROJECT_NAME
 echo ''
 
 
-#postgres
 chmod +x postgres/postgres.sh
+chmod +x ../db/reinstall_db.sh
+
+#postgres
 ./postgres/postgres.sh
 
 
