@@ -1,0 +1,6 @@
+postgres=true
+
+user=postgres
+password=postgres
+
+db_name=tyrion
