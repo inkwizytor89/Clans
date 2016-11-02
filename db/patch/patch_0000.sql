@@ -13,11 +13,11 @@ create table if not exists users (
     password VARCHAR(40),
     nick VARCHAR(40),
     email VARCHAR(40) UNIQUE,
-    updated TIMESTAMP,
+    updated TIMESTAMP default now(),
     created TIMESTAMP default now()
 );
 
-CREATE OR REPLACE FUNCTION update_users()	
+CREATE OR REPLACE FUNCTION updated()	
 RETURNS TRIGGER AS $$
 BEGIN
     NEW.updated = now();
@@ -25,5 +25,5 @@ BEGIN
 END;
 $$ language 'plpgsql';
 
-CREATE TRIGGER update_users BEFORE INSERT OR UPDATE ON users FOR EACH ROW EXECUTE PROCEDURE  update_users();
+CREATE TRIGGER update_users BEFORE UPDATE ON users FOR EACH ROW EXECUTE PROCEDURE updated();
 
