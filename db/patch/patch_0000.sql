@@ -7,11 +7,14 @@ create table if not exists db_version (
 
 insert into db_version values (0);
 
+CREATE TYPE sex_type AS ENUM ('male', 'female');
+
 create table if not exists users (
     id serial PRIMARY KEY,
     login varchar(40) UNIQUE,
     password VARCHAR(40),
     nick VARCHAR(40),
+    sex sex_type,
     email VARCHAR(40) UNIQUE,
     updated TIMESTAMP default now(),
     created TIMESTAMP default now()
