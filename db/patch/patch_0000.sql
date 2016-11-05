@@ -30,3 +30,9 @@ $$ language 'plpgsql';
 
 CREATE TRIGGER update_users BEFORE UPDATE ON users FOR EACH ROW EXECUTE PROCEDURE updated();
 
+create table if not exists user_roles (
+  user_id int REFERENCES users NOT NULL,
+  role varchar(40) NOT NULL,
+  created TIMESTAMP default now(),
+  UNIQUE (user_id, role)
+);
