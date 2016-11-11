@@ -1,6 +1,7 @@
 package clans.character.nature;
 
-import construction.point.Point;
+import com.prototype.data.Nature;
+import com.prototype.data.construction.Point;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

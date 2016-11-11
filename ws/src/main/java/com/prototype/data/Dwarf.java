@@ -1,7 +1,4 @@
-package clans.character;
-
-import clans.Company;
-import clans.character.nature.Nature;
+package com.prototype.data;
 
 public class Dwarf {
 

@@ -12,7 +12,7 @@ CREATE TYPE sex_type AS ENUM ('male', 'female');
 create table if not exists users (
     id serial PRIMARY KEY,
     login varchar(40) UNIQUE,
-    password VARCHAR(40),
+    password VARCHAR(60),
     nick VARCHAR(40),
     sex sex_type,
     email VARCHAR(40) UNIQUE,

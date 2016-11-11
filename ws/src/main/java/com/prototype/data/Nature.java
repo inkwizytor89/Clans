@@ -1,6 +1,6 @@
-package clans.character.nature;
+package com.prototype.data;
 
-import construction.point.Point;
+import com.prototype.data.construction.Point;
 
 import java.util.Random;
 

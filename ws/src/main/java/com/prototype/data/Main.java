@@ -1,5 +1,7 @@
-import clans.Company;
-import clans.character.Dwarf;
+package com.prototype.data;
+
+import com.prototype.data.Company;
+import com.prototype.data.Dwarf;
 
 /**
  * Created by inkwizytor89 on 19.10.16.

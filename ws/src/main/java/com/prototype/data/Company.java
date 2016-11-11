@@ -1,6 +1,6 @@
-package clans;
+package com.prototype.data;
 
-import clans.character.Dwarf;
+import com.prototype.data.Dwarf;
 
 import java.util.ArrayList;
 

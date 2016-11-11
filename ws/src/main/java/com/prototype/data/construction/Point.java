@@ -1,4 +1,4 @@
-package construction.point;
+package com.prototype.data.construction;
 
 public class Point {
 	public Double x;
