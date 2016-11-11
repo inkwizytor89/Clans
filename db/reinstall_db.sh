@@ -7,7 +7,7 @@ for FILE in `ls --ignore-backups unpatch | sort -r`; do
 done
 
 for FILE in patch/*.sql; do 
-	sudo -u postgres psql -t -d $db_name -f $FILE;
+	sudo -u postgres psql -t -d $db_name -f "$FILE";
 done
 
 for FILE in init_data/*.sql; do 
