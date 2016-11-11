@@ -23,7 +23,7 @@ create table if not exists armors (
     bonus_id int REFERENCES bonuses(id)
 );
 
-CREATE TYPE weapon_kind AS ENUM ('two hand sword', 'one hand sword', 'two hand axe', 'one hand axe', 'two hand mace', 'one hand mace', 'bow',  'shield');
+CREATE TYPE weapon_kind AS ENUM ('two hand sword', 'one hand sword', 'two hand axe', 'one hand axe', 'two hand mace', 'one hand mace', 'bow', 'slingshot', 'shield');
 
 create table if not exists weapons (
     item_id int not null REFERENCES items(id),

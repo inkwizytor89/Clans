@@ -3,6 +3,7 @@
 create table if not exists inventories (
     member_id integer REFERENCES members(id),
     item_id int not null REFERENCES items(id),
+    efficiency real default 1.0,
     created TIMESTAMP default now()
 );
 
@@ -27,5 +28,6 @@ create table if not exists equipments (
     cloak integer REFERENCES items(id),
     neck integer REFERENCES items(id),
     first_ring integer REFERENCES items(id),
-    second_ring integer REFERENCES items(id)
+    second_ring integer REFERENCES items(id),
+    unique(member_id)
 );

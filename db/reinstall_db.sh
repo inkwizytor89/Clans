@@ -11,5 +11,5 @@ for FILE in patch/*.sql; do
 done
 
 for FILE in init_data/*.sql; do 
-	sudo -u postgres psql -t -d $db_name -f $FILE;
+	sudo -u postgres psql -t -d $db_name -f "$FILE";
 done
