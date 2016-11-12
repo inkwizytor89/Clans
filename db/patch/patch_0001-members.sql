@@ -18,6 +18,12 @@ create table if not exists members (
     sociality real not null check (sociality >=-1 AND sociality <=1),
     sex sex_type,
     team_id integer REFERENCES teams,
+    strength real not null default 8.0,
+    agility real not null default 8.0,
+    stamina real not null default 8.0,
+    intelligence real not null default 8.0,
+    wisdom real not null default 8.0,
+    charisma real not null default 8.0,
     updated TIMESTAMP default now(),
     created TIMESTAMP default now()
 );
