@@ -1,6 +1,5 @@
-package clans.character.nature;
+package com.prototype.data;
 
-import com.prototype.data.Nature;
 import com.prototype.data.construction.Point;
 import org.junit.After;
 import org.junit.Before;
@@ -9,9 +8,6 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by inkwizytor89 on 17.10.16.
- */
 public class NatureTest {
 
     private static final double ALMOST_ZERO = 0.001;

@@ -1,10 +1,9 @@
-package com.prototype.server.user.dao.impl;
+package com.prototype.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.prototype.server.user.dao.UserDao;
-import com.prototype.server.user.entity.User;
+import com.prototype.dao.UserDao;
+import com.prototype.entity.User;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,9 +19,7 @@ public class UserDaoImpl implements UserDao {
     @SuppressWarnings("unchecked")
     public User findByUserName(String login) {
 
-        List<User> users = new ArrayList<User>();
-
-        users = sessionFactory.getCurrentSession()
+        List<User> users = sessionFactory.getCurrentSession()
                 .createQuery("from User where login=?")
                 .setParameter(0, login)
                 .list();
@@ -33,6 +30,11 @@ public class UserDaoImpl implements UserDao {
             return null;
         }
 
+    }
+
+    @Override
+    public String getPlayerDetails(Integer userId) {
+        return null;
     }
 
 }

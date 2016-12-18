@@ -1,7 +1,7 @@
 package com.prototype.server;
 
-import com.prototype.server.user.dao.UserDao;
-import com.prototype.server.user.entity.User;
+import com.prototype.dao.UserDao;
+import com.prototype.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,20 +15,21 @@ public class LoginController {
     private UserDao userDao;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestParam(value = "login", required = true) String login,
+    public User login(@RequestParam(value = "login", required = true) String login,
                               @RequestParam(value = "password", required = true) String password) {
 
         User user = userDao.findByUserName(login);
+        return user;
 
-        if(user == null) {
-            return "Użytkownik "+login+" nie występuje w bazie";
-        }
-
-        if(!user.getPassword().equals(password)) {
-            return "Niepoprawne hasło dla użytkownika "+login;
-        }
-
-        return "Witaj użytkowniku "+login+" o haśle "+password;
+//        if(user == null) {
+//            return "Użytkownik "+login+" nie występuje w bazie";
+//        }
+//
+//        if(!user.getPassword().equals(password)) {
+//            return "Niepoprawne hasło dla użytkownika "+login;
+//        }
+//
+//        return "Witaj użytkowniku "+login+" o haśle "+password;
 
     }
 }

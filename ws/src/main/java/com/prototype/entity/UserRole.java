@@ -1,4 +1,6 @@
-package com.prototype.server.user.entity;
+package com.prototype.entity;
+
+import com.prototype.entity.User;
 
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Column;
