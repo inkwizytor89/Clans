@@ -1,4 +1,4 @@
-package com.prototype.server;
+package com.prototype.server.endpoint;
 
 import com.prototype.dao.MemberDao;
 import com.prototype.entity.Member;

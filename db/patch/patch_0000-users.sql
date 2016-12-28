@@ -42,10 +42,10 @@ BEGIN
 END;
 $$  LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION hash_password(pass TEXT, salt TEXT)
+CREATE OR REPLACE FUNCTION hash_password(_pass TEXT, _salt TEXT)
 RETURNS TEXT AS $$
 BEGIN
-        RETURN crypt(pass, gen_salt('bf',8));
+        RETURN crypt(_pass, _salt);
 END;
 $$  LANGUAGE plpgsql;
 
@@ -55,7 +55,7 @@ DECLARE passed BOOLEAN;
 BEGIN
         SELECT  (users.password = hash_password(_pass, salt)) INTO passed
         FROM    users
-        WHERE   login = _uname;
+        WHERE   login = _uname OR email = _uname;
 
         RETURN passed;
 END;

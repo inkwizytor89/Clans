@@ -1,5 +1,7 @@
 package com.prototype.dao.impl;
 
+import java.sql.CallableStatement;
+import java.sql.Types;
 import java.util.List;
 
 import com.prototype.dao.UserDao;
@@ -16,25 +18,38 @@ public class UserDaoImpl implements UserDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+//    @SuppressWarnings("unchecked")
+//    public User findByUserName(String login) {
+//
+//        List<User> users = sessionFactory.getCurrentSession()
+//                .createQuery("from User where login=?")
+//                .setParameter(0, login)
+//                .list();
+//
+//        if (users.size() > 0) {
+//            return users.get(0);
+//        } else {
+//            return null;
+//        }
+//
+//    }
+
     @SuppressWarnings("unchecked")
-    public User findByUserName(String login) {
+    public Boolean login(String login, String password) {
 
-        List<User> users = sessionFactory.getCurrentSession()
-                .createQuery("from User where login=?")
-                .setParameter(0, login)
-                .list();
+        Boolean accept = sessionFactory.getCurrentSession()
+                .doReturningWork(connection -> {
+                    try (CallableStatement function = connection.prepareCall(
+                            "{ ? = call check_password(?, ?) }" )) {
+                        function.registerOutParameter(1, Types.BOOLEAN);
+                        function.setString(2, login);
+                        function.setString(3, password);
+                        function.execute();
+                        return function.getBoolean(1);
+                    }
+                } );
 
-        if (users.size() > 0) {
-            return users.get(0);
-        } else {
-            return null;
-        }
-
-    }
-
-    @Override
-    public String getPlayerDetails(Integer userId) {
-        return null;
+        return accept;
     }
 
 }
